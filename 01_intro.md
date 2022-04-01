@@ -1,13 +1,13 @@
-# 1. Project and gRPC introduction
+# Project introduction
 In the upcoming series I'd like to show you how to set up gRPC server with logging middleware, few services and logger. After that we will take a look at how we can avoid code duplication thanks to generics and how to write macros which can generate code for us so we don't have to keep writing boring stuff again and again.  
 If you'd like to follow along you will need [Rust toolchain](https://www.rust-lang.org/tools/install) installed. Later on we will use [Pagila](https://github.com/devrimgunduz/pagila) database to have some data to play with.
 
-## 2. gRPC
+## gRPC
 > gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any environment.  
 
 `Remote Procedure Call` means that you can remotely execute function that server implemented. But how do you know what functions are implemented, what are inputs, outputs and how to call them? Definitions are handled by `protobuf` and are written in text file with `.proto` extension. Data (de)serialization and routing are handled by libraries that implement required protocols and specifications. In our case we will use gRPC library called [tonic](https://github.com/hyperium/tonic)
 
-## 3. Project set up
+## Project set up
 Before defining our `proto` file, we will first create project structure. In your terminal navigate to directory where you want your project to be and then execute command `cargo new pagser`. This will create basic Rust project structure for us. Now inside project's directory crate folder `protos` with file `customer_service.proto`.  
 This should be your current project structure:
 ```bash
