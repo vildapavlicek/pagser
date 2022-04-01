@@ -51,3 +51,6 @@ Each of these rpcs is set up so they return different type of response:
 3. `CustomerDetails` returns single `message`  
   
 gRPC also supports bidirectional streaming whose signature would be `rpc BiStreamingRpc (stream BiStreamingRequest) returns (stream BiStreamingResponse)`.
+
+# Closing words
+That's all for this introductory chapter. In the next one we will make custom build script to generate Rust code from our `customer_service.proto` file which will contain our structs and traits that we will use to create service that can be registered with gRPC server.
