@@ -6,14 +6,14 @@ service CustomerService {
   // Returns stream of all the customers stored in DB
   rpc SelectCustomers(CustomersRequest) returns (stream Customer);
   // Returns 10 customers with newest created_date
-  rpc SelectNewestCustomers(CustomersRequest) returns (CustomersResponse);
+  rpc SelectNewestCustomers(CustomersRequest) returns (NewestCustomersResponse);
   // Returns single customer's details
   rpc CustomerDetails(CustomerDetailsRequest) returns (CustomerDetailsResponse);
 }
 
 message CustomersRequest {}
 
-message CustomersResponse {
+message NewestCustomersResponse {
   repeated Customer customer = 1;
 }
 
