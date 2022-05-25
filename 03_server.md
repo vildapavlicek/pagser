@@ -31,7 +31,7 @@ Server::builder() // 1
         .expect("failed to run server"); // 5
 ```
 1. We use builder pattern to configure the server
-2. We add our `CustomerService` struct which we implemented before, but first we have to wrap it in `CustomerServiceServer` is is generated based on our gRPC. 
+2. We add our `CustomerService` struct which we implemented before, but first we have to wrap it in `CustomerServiceServer` which is generated based on our gRPC. What happens under the hood, simply put, is that we register service that has method `call(..)` which gets called with each request and is expected to return response. Our `call(..)` simply matches the request's URI and based on that calls the requested function implemented on our `CustomerService`. You can see implementation details in our generate source file.
 3. Then we create `Future` that will listen and server all our requests
 4. And `await` it
 5. If there happen any errors, we will just panick and exit the aplication

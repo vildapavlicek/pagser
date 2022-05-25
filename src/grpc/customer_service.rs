@@ -1,7 +1,6 @@
 use super::*;
 use tonic::{Request, Response, Status};
 
-#[derive(Debug, Copy, Clone)]
 pub struct CustomerService;
 
 #[tonic::async_trait]
