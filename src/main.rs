@@ -1,11 +1,8 @@
 mod grpc;
 
-fn main() {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Hello, world!");
-    testing_fn();
-}
-
-
-fn testing_fn() {
-    println!("Hello, world!");
+    grpc::server::run().await;
+    Ok(())
 }

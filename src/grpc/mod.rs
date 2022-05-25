@@ -1,4 +1,4 @@
 mod customer_service;
-mod server;
+pub mod server;
 
 tonic::include_proto!("customer_service");
