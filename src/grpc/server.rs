@@ -1,3 +1,5 @@
+use crate::db::DB;
+
 use super::{customer_service::CustomerService, customer_service_server::CustomerServiceServer};
 use std::{net::SocketAddr, time::Duration};
 use tonic::{
@@ -7,7 +9,7 @@ use tonic::{
 use tower_http::classify::GrpcFailureClass;
 use tracing::{debug, error, info, Span};
 
-pub async fn run() {
+pub async fn run(db: DB) {
     let addr = std::env::var("PAGSER_ADDR")
         .unwrap_or_else(|_| "[::1]:50051".into())
         .parse::<SocketAddr>()
@@ -29,7 +31,7 @@ pub async fn run() {
 
     Server::builder()
         .layer(tracing_layer)
-        .add_service(CustomerServiceServer::new(CustomerService))
+        .add_service(CustomerServiceServer::new(CustomerService::new(db)))
         .serve(addr)
         .await
         .expect("failed to run server");

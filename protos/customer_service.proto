@@ -28,12 +28,16 @@ message CustomerDetailsRequest {
 }
 
 message CustomerDetailsResponse {
+  // pagila.customer
+  // first_name
   string name = 1;
+  // last_name
   string last_name = 2;
+  // create_date
   string registration_date = 3;
+  // in pagila.address
   string address = 4;
   optional string address2 = 5;
   string district = 6;
   string phone = 7;
-
 }
