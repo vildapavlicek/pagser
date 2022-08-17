@@ -9,23 +9,25 @@ edition = "2021"
 # async runtime
 tokio = { version =  "1.17.0", features = ["rt-multi-thread", "macros"] }
 # gRPC
-tonic = "0.6.2"
-prost = "0.9.0"
+tonic = "0.8.0"
+prost = "0.11.0"
 tokio-stream = "0.1.8"
 tower = "0.4.11"
-tower-http = { version = "0.2.3", features = ["trace"] }
+tower-http = { version = "0.3.4", features = ["trace"] }
 http = "0.2.6"
 # DB
-sqlx = { version = "0.5.11", features = ["runtime-tokio-native-tls"] }
+sqlx = { version = "0.6.0", features = ["runtime-tokio-native-tls", "postgres", "chrono"] }
 # logging & tracing
 tracing = "0.1.31"
 tracing-futures = "0.2.5"
 tracing-subscriber = { version = "0.3.9", features = ["env-filter"] }
 tracing-appender = "0.2.0"
-
+# utils
+uuid = { version = "1.1.2", features = ["v4"] }
+chrono = "0.4.20"
 
 [build-dependencies]
-tonic-build = "0.6.2"
+tonic-build = "0.8.0"
 
 ## static linking OpenSSL for unix
 [target.'cfg(unix)'.dependencies]
